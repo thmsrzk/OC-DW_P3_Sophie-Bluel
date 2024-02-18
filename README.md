@@ -1,6 +1,6 @@
 # Portfolio-architecte-sophie-bluel
 
-Code du projet 6 d'intégrateur web.
+Code du projet 3 de la formation Développeur Web.
 
 ## Information pour le lancer le code
 
