@@ -84,13 +84,11 @@ hotelsrestaurantsFilter.addEventListener("click", function () {
 const buttons = document.querySelectorAll('.filter');
 
 buttons.forEach(button => {
-  button.addEventListener('click', isSelected, false);
-});
-
-function isSelected() {
+  button.addEventListener('click', function () {
   buttons.forEach(filter => filter.classList.remove('selectedFilter'));
   this.classList.add('selectedFilter');
-}
+} /*, false*/ )
+});
 
 
 // Make "all" ("Tous") filter clicked by default ----------------------------------------
