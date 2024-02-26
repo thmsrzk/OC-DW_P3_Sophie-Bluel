@@ -29,7 +29,7 @@ loginForm.addEventListener("submit", (event) => {
           loginError.innerText = "";
           loginError.classList.add("loginError");
           loginError.innerText = "Identifiants introuvables. Veuillez réessayer.";
-          console.log("Identifiants introuvables. Veuillez réessayer.");
+          // console.log("Identifiants introuvables. Veuillez réessayer.");
         }
       })
   });
