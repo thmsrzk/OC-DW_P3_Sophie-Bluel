@@ -31,6 +31,7 @@ function generateGallery(sophiesWork) {
 generateGallery(sophiesWork);
 
 
+// ----------------------------------FILTERS------------------------------------
 // "All" filter
 
 const allFilter = document.querySelector("#all");
