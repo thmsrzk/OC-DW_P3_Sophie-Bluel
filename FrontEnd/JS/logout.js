@@ -1,13 +1,14 @@
 const token = localStorage.getItem("token");
+const logOutButton = document.querySelector("#login-btn");
 
 function logout() {
 
     if (token != null) {
         
-        document.querySelector("#login-btn").innerHTML = 'logout';  
-        document.querySelector("#login-btn").href = '';
-        document.querySelector("#login-btn").style.color = "red";
-        document.querySelector("#login-btn").addEventListener("click", () => {
+        logOutButton.innerHTML = 'logout';  
+        logOutButton.href = '';
+        logOutButton.classList.add('logout-btn');
+        logOutButton.addEventListener("click", () => {
             localStorage.removeItem("token");
             // window.location.href = "login.html";
         });
