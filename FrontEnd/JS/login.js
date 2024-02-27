@@ -24,11 +24,8 @@ loginForm.addEventListener("submit", (event) => {
           window.location.href = "index.html";
         } else {
           // Create an error message if logins infos are incorrects
-          const loginError = document.createElement("p");
-          document.getElementById("login-form").appendChild(loginError);
-          loginError.innerText = "";
-          loginError.classList.add("loginError");
-          loginError.innerText = "Identifiants introuvables. Veuillez réessayer.";
+          const loginError = document.getElementsByClassName(".login-error");
+          document.querySelector(".login-error").innerText = "Identifiants introuvables. Veuillez réessayer.";
           // console.log("Identifiants introuvables. Veuillez réessayer.");
         }
       })
