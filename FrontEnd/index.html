@@ -51,13 +51,19 @@
 	<section id="portfolio">
 		<div class="projects">
 			<h2>Mes Projets</h2>
-			<div class="modal-relative" id="open-modal">
+			<div class="modal-relative">
 				<i class="fa-solid fa-pen-to-square"></i>
-				<a href="#modal">Modifier</a>	
+				<a href="#modal" class="open-modal">Modifier</a>	
 			</div>
 		</div>
 		
-		<aside id="modal" class="modal-relative"></aside>
+		<aside id="modal" class="modal-relative" aria-hidden="true" role="dialog" aria-hidden="true" style="display: none;">
+			<div class="modal-wrapper">
+				<button class="close-modal">
+					<i class="fa-solid fa-xmark"></i>
+				</button>
+			</div>
+		</aside>
 
 		<div class="filterbar">
 			<button class="filter" id="all">
