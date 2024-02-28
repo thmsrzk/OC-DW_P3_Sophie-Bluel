@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="./assets/stylesheets/index.css">
 	<script type="module" src="/FrontEnd/JS/script.js"></script>
 	<script type="module" src="/FrontEnd/JS/logout.js"></script>
+	<script type="module" src="/FrontEnd/JS/modal.js"></script>
 </head>
 
 <body>
@@ -44,13 +45,13 @@
 	<section id="portfolio">
 		<div class="projects">
 			<h2>Mes Projets</h2>
-			<div class="open-modal">
+			<div class="modal-relative" id="open-modal">
 				<i class="fa-solid fa-pen-to-square"></i>
 				<a href="#modal">Modifier</a>	
 			</div>
 		</div>
 		
-		<aside id="modal"></aside>
+		<aside id="modal" class="modal-relative"></aside>
 
 		<div class="filterbar">
 			<button class="filter" id="all">
