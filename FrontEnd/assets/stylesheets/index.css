@@ -1,3 +1,19 @@
+#black-banner {
+	background-color: black;
+	height: 60px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#black-banner div {
+	color: white;
+	display: flex;
+	gap: 15px;
+}
+
 .logout-btn:hover {
     color: red;
 	font-weight: bold;
