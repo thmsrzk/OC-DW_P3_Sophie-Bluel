@@ -1,8 +1,15 @@
 const token = localStorage.getItem("token");
 const logOutButton = document.querySelector("#login-btn");
 
-function logout() {
+const isLoggedIn = () => {
     if (token != null) {
+        return true;
+    }
+    return false;
+}
+
+function logout() {
+    if (isLoggedIn()) {
         logOutButton.innerHTML = 'logout';  
         logOutButton.href = '';
         logOutButton.classList.add('logout-btn');
@@ -14,3 +21,5 @@ function logout() {
 }
 
 logout();
+
+export default isLoggedIn;
