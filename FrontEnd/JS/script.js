@@ -10,7 +10,7 @@ document.querySelector(".gallery").innerHTML = '';
 // Add .gallery content from back-end
 const gallery = document.querySelector(".gallery");
 
-function generateGallery(sophiesWork) {
+export function generateGallery(sophiesWork) {
     for (let a = 0; a < sophiesWork.length; a++) {
         
         const galleryDiv = gallery;

@@ -1,4 +1,4 @@
-const token = localStorage.getItem("token");
+export const token = localStorage.getItem("token");
 const logOutButton = document.querySelector("#login-btn");
 
 const isLoggedIn = () => {
