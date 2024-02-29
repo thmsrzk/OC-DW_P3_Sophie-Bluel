@@ -1,9 +1,10 @@
 const worksApiUrl = "http://localhost:5678/api/works";
-export const sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
+export let sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
 
-
-
-
+export async function sophiesWorkRefreshed() {
+    sophiesWork = await fetch(worksApiUrl).then(response => response.json());
+    return true;
+}
 //Erase html's .gallery content
 document.querySelector(".gallery").innerHTML = '';
 

@@ -2,6 +2,7 @@ import isLoggedIn from "./logout.js"
 import { sophiesWork } from "./script.js";
 import { token } from "./logout.js";
 import { generateGallery } from "./script.js";
+import { sophiesWorkRefreshed } from "./script.js";
 
 //delete everything related to the modal if the user is not logged in
 function removeModalRelatives() {
@@ -50,24 +51,23 @@ document.querySelector(".open-modal").addEventListener("click", openModal);
 
 // generate modal gallery
 function generateModalGallery(sophiesWork) {
-    for (let a = 0; a < sophiesWork.length; a++) {
-        
+    sophiesWork.forEach(work => {
         const galleryDiv = document.querySelector(".modal-gallery");
 
         const figureElement = document.createElement("figure");
 
         const imageElement = document.createElement("img");
-        imageElement.src = sophiesWork[a].imageUrl;
-        imageElement.alt = sophiesWork[a].title;
+        imageElement.src = work.imageUrl;
+        imageElement.alt = work.title;
 
         const deleteButtonElement = document.createElement("button");
         deleteButtonElement.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-        deleteButtonElement.id = sophiesWork[a].id;
+        deleteButtonElement.id = work.id;
         deleteButtonElement.className = "modal-del-buttons"
 
         galleryDiv.appendChild(figureElement);
         figureElement.append(imageElement, deleteButtonElement);
-    };
+    });
     deleteWork();
 }
 
@@ -83,7 +83,9 @@ function deleteWork() {
                     "Authorization": `Bearer ${token}`,
                 }
             });
+
             if (response.ok) {
+                await sophiesWorkRefreshed();
                 document.querySelector(".gallery").innerHTML = '';
                 document.querySelector(".modal-gallery").innerHTML = '';
                 generateModalGallery(sophiesWork);
