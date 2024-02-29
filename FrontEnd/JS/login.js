@@ -1,4 +1,5 @@
 const loginForm = document.querySelector("#login-form");
+const loginApiUrl = "http://localhost:5678/api/users/login";
 
 loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -6,7 +7,7 @@ loginForm.addEventListener("submit", (event) => {
     const formLogs = new FormData(loginForm);
     const loginData = Object.fromEntries(formLogs);
   
-    fetch("http://localhost:5678/api/users/login", {
+    fetch(loginApiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",

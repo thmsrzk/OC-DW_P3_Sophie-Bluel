@@ -1,5 +1,5 @@
-const apiUrl = "http://localhost:5678/api/works";
-export const sophiesWork = await fetch(apiUrl).then(sophiesWork => sophiesWork.json());
+const worksApiUrl = "http://localhost:5678/api/works";
+export const sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
 
 
 
