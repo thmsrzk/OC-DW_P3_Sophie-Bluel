@@ -80,11 +80,11 @@
 
 .modal-wrapper {
 	width: 630px;
-	min-height: 300px;
 	padding: 20px;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
 }
 
 .close-modal {
@@ -97,6 +97,48 @@
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+#modal h3 {
+	font-weight: 400;
+	font-size: 26px;
+	align-self: center;
+}
+
+.modal-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 40px 70px 0 70px;
+	padding: 0 0 70px 0;
+	width: 420px;
+	justify-content: space-between;
+	align-self: center;
+	gap: 5px;
+	border-bottom: #B3B3B3 solid 1px;
+}
+
+.modal-gallery figure {
+	position: relative;
+	width: 76.86px;
+}
+
+.modal-gallery img {
+	width: 100%;
+	height: auto;
+}
+
+.modal-gallery button{
+	background-color: white;
+	border: none;
+	position: absolute;
+	cursor: pointer;
+	top: 5%;
+  	right: 5%;
+}
+
+#add-picture{
+	height: 36px;
+	cursor: pointer;
 }
 
 .filterbar {

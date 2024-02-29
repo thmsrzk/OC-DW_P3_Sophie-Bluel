@@ -1,5 +1,5 @@
 const apiUrl = "http://localhost:5678/api/works";
-const sophiesWork = await fetch(apiUrl).then(sophiesWork => sophiesWork.json());
+export const sophiesWork = await fetch(apiUrl).then(sophiesWork => sophiesWork.json());
 
 
 
@@ -8,10 +8,12 @@ const sophiesWork = await fetch(apiUrl).then(sophiesWork => sophiesWork.json());
 document.querySelector(".gallery").innerHTML = '';
 
 // Add .gallery content from back-end
+const gallery = document.querySelector(".gallery");
+
 function generateGallery(sophiesWork) {
     for (let a = 0; a < sophiesWork.length; a++) {
         
-        const galleryDiv = document.querySelector(".gallery");
+        const galleryDiv = gallery;
 
         const figureElement = document.createElement("figure");
 
@@ -28,7 +30,7 @@ function generateGallery(sophiesWork) {
     }
 }
 
-generateGallery(sophiesWork);
+// generateGallery(sophiesWork);
 
 
 // ----------------------------------FILTERS------------------------------------
