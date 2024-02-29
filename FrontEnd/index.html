@@ -37,6 +37,17 @@
 	</nav>
 </header>
 <main>
+	<aside id="modal" class="modal-relative" aria-hidden="true" role="dialog" aria-hidden="true" style="display: none;">
+		<div class="modal-wrapper">
+			<button class="close-modal">
+				<i class="fa-solid fa-xmark"></i>
+			</button>
+			<h3>Galerie photo</h3>
+			<div class="modal-gallery">
+			</div>
+			<input type="submit" value="Ajouter une photo" id="add-picture">
+		</div>
+	</aside>
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="">
@@ -56,19 +67,6 @@
 				<a href="#modal" class="open-modal">Modifier</a>	
 			</div>
 		</div>
-		
-		<aside id="modal" class="modal-relative" aria-hidden="true" role="dialog" aria-hidden="true" style="display: none;">
-			<div class="modal-wrapper">
-				<button class="close-modal">
-					<i class="fa-solid fa-xmark"></i>
-				</button>
-				<h3>Galerie photo</h3>
-				<div class="modal-gallery">
-				</div>
-				<input type="submit" value="Ajouter une photo" id="add-picture">
-			</div>
-		</aside>
-
 		<div class="filterbar">
 			<button class="filter" id="all">
 				<span class="filtertext">Tous</span>

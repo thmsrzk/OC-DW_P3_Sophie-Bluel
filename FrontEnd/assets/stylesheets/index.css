@@ -127,7 +127,8 @@
 }
 
 .modal-gallery button{
-	background-color: white;
+	color: white;
+	background-color: black;
 	border: none;
 	position: absolute;
 	cursor: pointer;

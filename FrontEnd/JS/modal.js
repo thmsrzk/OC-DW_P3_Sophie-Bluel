@@ -65,14 +65,13 @@ function generateModalGallery(sophiesWork) {
         deleteButtonElement.id = sophiesWork[a].id;
         deleteButtonElement.className = "modal-del-buttons"
 
-
         galleryDiv.appendChild(figureElement);
         figureElement.append(imageElement, deleteButtonElement);
     };
     deleteWork();
 }
 
-
+// delete works from database
 function deleteWork() {
     const buttons = document.querySelectorAll(".modal-del-buttons");
     buttons.forEach(button => {
