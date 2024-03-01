@@ -163,12 +163,18 @@
 	margin: 20px 0 50px 0;
 	background-color: #E8F1F6;
 	gap: 15px;
-	padding: 20px;
+	height: 200px;
+}
+
+.image-upload img {
+	height: 100%;
+	width: auto;
 }
 
 .fa-image {
 font-size: 76px;
 	color:#B3B3B3;
+	margin-top: 20px;
 }
 
 #image{
