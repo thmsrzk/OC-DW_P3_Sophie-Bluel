@@ -78,8 +78,9 @@
 	align-items: center;
 }
 
-.modal-wrapper {
+.modal1-wrapper, .modal2-wrapper{
 	width: 630px;
+	min-height: 670px;
 	padding: 20px;
 	background-color: white;
 	display: flex;
@@ -87,7 +88,8 @@
 	gap: 10px;
 }
 
-.close-modal {
+.close-modals,
+.close-modal2 {
 	display: flex;
 	align-self: flex-end;
 	background: none;
@@ -138,7 +140,13 @@
 
 #add-picture{
 	height: 36px;
+	width: 237px;
 	cursor: pointer;
+}
+
+.modal2-buttons {
+	display: flex;
+	justify-content: space-between;
 }
 
 .filterbar {

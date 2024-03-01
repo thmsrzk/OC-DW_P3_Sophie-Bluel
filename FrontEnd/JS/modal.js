@@ -24,29 +24,59 @@ const stopPropagation = function (e) {
     e.stopPropagation();
 }
 
-const openModal = function (e) {
+const openFirstModal = function (e) {
     e.preventDefault();
     modal.style.display = null;
     modal.setAttribute("aria-hidden", "false");
     modal.setAttribute("aria-modale", 'true');
-    modal.addEventListener("click", closeModal);
-    modal.querySelector(".close-modal").addEventListener("click", closeModal);
-    modal.querySelector(".modal-wrapper").addEventListener("click", stopPropagation);
+    modal.querySelector(".modal1-wrapper").addEventListener("click", stopPropagation);
+    modal.querySelector(".modal2-wrapper").addEventListener("click", stopPropagation);
+    modal.addEventListener("click", closeModals);
+    document.querySelector("#add-picture").addEventListener("click", (event => {
+        event.preventDefault();
+        openSecondModal();
+    }));
+    modal.querySelectorAll(".close-modals").forEach((button) => {
+        button.addEventListener("click", closeModals);
+    });
 
 }
 
-const closeModal = function (e) { 
+
+const closeModals = function (e) { 
     e.preventDefault();
     modal.style.display = "none";
+    secondModal.style.display = "none";
+    firstModal.style.display = null;
     modal.setAttribute("aria-hidden", "true");
     modal.removeAttribute("aria-modale");
-    modal.removeEventListener("click", closeModal);
-    modal.querySelector(".close-modal").removeEventListener("click", closeModal);
-    modal.querySelector(".modal-wrapper").removeEventListener("click", stopPropagation);
-
+    modal.removeEventListener("click", closeModals);
+    modal.querySelectorAll(".close-modals").removeEventListener("click", closeModals);
+    modal.querySelector(".modal1-wrapper").removeEventListener("click", stopPropagation);
+    modal.querySelector(".modal2-wrapper").removeEventListener("click", stopPropagation);
+    
 }
 
-document.querySelector(".open-modal").addEventListener("click", openModal);
+const firstModal = document.querySelector(".modal1-wrapper");
+const secondModal = document.querySelector(".modal2-wrapper");
+
+const openSecondModal = function () {
+    secondModal.style.display = null;
+    firstModal.style.display = "none";
+    document.querySelector(".close-modal2").addEventListener("click", (event => {
+        event.preventDefault();
+        closeSecondModal();
+    }));
+}
+
+const closeSecondModal = function (e) {
+    secondModal.style.display = "none";
+    firstModal.style.display = null;
+}
+
+
+
+document.querySelector(".open-modal").addEventListener("click", openFirstModal);
 
 
 // generate modal gallery
@@ -59,7 +89,7 @@ function generateModalGallery(sophiesWork) {
         const imageElement = document.createElement("img");
         imageElement.src = work.imageUrl;
         imageElement.alt = work.title;
-
+        
         const deleteButtonElement = document.createElement("button");
         deleteButtonElement.innerHTML = `<i class="fa-solid fa-trash"></i>`;
         deleteButtonElement.id = work.id;
