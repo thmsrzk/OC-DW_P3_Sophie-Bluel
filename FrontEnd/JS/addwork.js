@@ -47,8 +47,6 @@ const uploadCategory = document.querySelector('#category');
 uploadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(uploadForm);
-      console.log(formData);
-      console.log(uploadForm);
     const response = await fetch('http://localhost:5678/api/works', {
         method: 'POST',
         headers: {
