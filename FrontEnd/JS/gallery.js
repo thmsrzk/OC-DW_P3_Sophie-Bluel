@@ -1,4 +1,7 @@
 const worksApiUrl = "http://localhost:5678/api/works";
+import { deleteWork } from "./deletework.js";
+
+
 export let sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
 
 export async function sophiesWorkRefreshed() {
@@ -8,7 +11,7 @@ export async function sophiesWorkRefreshed() {
 //Erase html's .gallery content
 document.querySelector(".gallery").innerHTML = '';
 
-// Add .gallery content from back-end
+// generate page gallery
 const gallery = document.querySelector(".gallery");
 
 export function generateGallery(sophiesWork) {
@@ -31,7 +34,28 @@ export function generateGallery(sophiesWork) {
     }
 }
 
-// generateGallery(sophiesWork);
+// generate modal gallery
+export function generateModalGallery(sophiesWork) {
+    sophiesWork.forEach(work => {
+        const galleryDiv = document.querySelector(".modal-gallery");
+
+        const figureElement = document.createElement("figure");
+
+        const imageElement = document.createElement("img");
+        imageElement.src = work.imageUrl;
+        imageElement.alt = work.title;
+        
+        const deleteButtonElement = document.createElement("button");
+        deleteButtonElement.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        deleteButtonElement.id = work.id;
+        deleteButtonElement.className = "modal-del-buttons"
+
+        galleryDiv.appendChild(figureElement);
+        figureElement.append(imageElement, deleteButtonElement);
+    });
+    deleteWork();
+}
+
 
 
 // ----------------------------------FILTERS------------------------------------

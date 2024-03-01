@@ -1,8 +1,6 @@
 import isLoggedIn from "./logout.js"
-import { sophiesWork } from "./script.js";
-import { token } from "./logout.js";
-import { generateGallery } from "./script.js";
-import { sophiesWorkRefreshed } from "./script.js";
+import { sophiesWork } from "./gallery.js";
+import { generateModalGallery } from "./gallery.js";
 
 //delete everything related to the modal if the user is not logged in
 function removeModalRelatives() {
@@ -51,7 +49,6 @@ const closeModals = function (e) {
     modal.setAttribute("aria-hidden", "true");
     modal.removeAttribute("aria-modale");
     modal.removeEventListener("click", closeModals);
-    modal.querySelectorAll(".close-modals").removeEventListener("click", closeModals);
     modal.querySelector(".modal1-wrapper").removeEventListener("click", stopPropagation);
     modal.querySelector(".modal2-wrapper").removeEventListener("click", stopPropagation);
     
@@ -79,48 +76,5 @@ const closeSecondModal = function (e) {
 document.querySelector(".open-modal").addEventListener("click", openFirstModal);
 
 
-// generate modal gallery
-function generateModalGallery(sophiesWork) {
-    sophiesWork.forEach(work => {
-        const galleryDiv = document.querySelector(".modal-gallery");
 
-        const figureElement = document.createElement("figure");
 
-        const imageElement = document.createElement("img");
-        imageElement.src = work.imageUrl;
-        imageElement.alt = work.title;
-        
-        const deleteButtonElement = document.createElement("button");
-        deleteButtonElement.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-        deleteButtonElement.id = work.id;
-        deleteButtonElement.className = "modal-del-buttons"
-
-        galleryDiv.appendChild(figureElement);
-        figureElement.append(imageElement, deleteButtonElement);
-    });
-    deleteWork();
-}
-
-// delete works from database
-function deleteWork() {
-    const buttons = document.querySelectorAll(".modal-del-buttons");
-    buttons.forEach(button => {
-        button.addEventListener("click", async () => {
-            const id = button.id;
-            const response = await fetch(`http://localhost:5678/api/works/${id}`, {
-                method: "DELETE",
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                }
-            });
-
-            if (response.ok) {
-                await sophiesWorkRefreshed();
-                document.querySelector(".gallery").innerHTML = '';
-                document.querySelector(".modal-gallery").innerHTML = '';
-                generateModalGallery(sophiesWork);
-                generateGallery(sophiesWork);
-            }
-        })
-    })
-}
