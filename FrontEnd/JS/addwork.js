@@ -1,4 +1,5 @@
-import { categories } from "./gallery.js";
+import { categories , sophiesWork , sophiesWorkRefreshed, generateGallery , generateModalGallery } from "./gallery.js";
+import { token } from "./logout.js";
 
 const uploadInput = document.querySelector('#image');
 const uploadImage = document.querySelector('.image-upload img');
@@ -38,3 +39,28 @@ async function addCategories() {
 }
 addCategories();
 
+
+const uploadForm = document.querySelector('#new-work-form');
+const uploadTitle = document.querySelector('#img-title');
+const uploadCategory = document.querySelector('#category');
+
+uploadForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(uploadForm);
+      console.log(formData);
+      console.log(uploadForm);
+    const response = await fetch('http://localhost:5678/api/works', {
+        method: 'POST',
+        headers: {
+            "Authorization": `Bearer ${token}`,
+        },
+        body: formData,
+    })
+    if (response.ok) {
+        await sophiesWorkRefreshed();
+        document.querySelector(".gallery").innerHTML = '';
+        document.querySelector(".modal-gallery").innerHTML = '';
+        generateModalGallery(sophiesWork);
+        generateGallery(sophiesWork);
+    }
+});

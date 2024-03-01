@@ -1,7 +1,7 @@
 const worksApiUrl = "http://localhost:5678/api/works";
 const categoriesApiUrl = "http://localhost:5678/api/categories";
 import { deleteWork } from "./deletework.js";
-export const sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
+export let sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
 export const categories = await fetch(categoriesApiUrl).then(categories => categories.json());
 export async function sophiesWorkRefreshed() {
     sophiesWork = await fetch(worksApiUrl).then(response => response.json());
