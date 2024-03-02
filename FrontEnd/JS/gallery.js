@@ -39,6 +39,7 @@ export function generateGallery(sophiesWork) {
     }
 }
 
+
 // generate modal gallery
 export function generateModalGallery(sophiesWork) {
     sophiesWork.forEach(work => {
@@ -72,57 +73,31 @@ export async function refreshBothGalleries() {
 }
 
 
-// ----------------------------------FILTERS------------------------------------
-// "All" filter
+// Filter gallery by category
+function createFilter(filterId, categoryId) {
+    const filter = document.querySelector(filterId);
 
-const allFilter = document.querySelector("#all");
-
-allFilter.addEventListener("click", function () {
-    document.querySelector(".gallery").innerHTML = '';
-    generateGallery(sophiesWork);
-});
-
-
-// "Object" filter
-
-const objectFilter = document.querySelector("#objects");
-
-objectFilter.addEventListener("click", function () {
-    const workFilteredByObject = sophiesWork.filter(function (work) {
-        return work.categoryId === 1;
+    filter.addEventListener("click", function () {
+        let workFiltered;
+        if (categoryId === null) {
+            workFiltered = sophiesWork;
+        } else {
+            workFiltered = sophiesWork.filter(function (work) {
+                return work.categoryId === categoryId;
+            });
+        }
+        document.querySelector(".gallery").innerHTML = '';
+        generateGallery(workFiltered);
     });
-    document.querySelector(".gallery").innerHTML = '';
-    generateGallery(workFilteredByObject);
-});
+}
 
+createFilter("#all", null);
+createFilter("#objects", 1);
+createFilter("#apartments", 2);
+createFilter("#hotelsrestaurants", 3);
 
-// "Apartments" filter
-
-const apartmentsFilter = document.querySelector("#apartments");
-
-apartmentsFilter.addEventListener("click", function () {
-    const workFilteredByApartment = sophiesWork.filter(function (work) {
-        return work.categoryId === 2;
-    });
-    document.querySelector(".gallery").innerHTML = '';
-    generateGallery(workFilteredByApartment);
-});
-
-
-// "Hotels and Restaurants" filter
-
-const hotelsrestaurantsFilter = document.querySelector("#hotelsrestaurants");
-
-hotelsrestaurantsFilter.addEventListener("click", function () {
-    const workFilteredByHandR = sophiesWork.filter(function (work) {
-        return work.categoryId === 3;
-    });
-    document.querySelector(".gallery").innerHTML = '';
-    generateGallery(workFilteredByHandR);
-});
 
 // Change background and font color from selected filter-------------------------
-
 const buttons = document.querySelectorAll('.filter');
 
 buttons.forEach(button => {
