@@ -4,6 +4,7 @@ import { token } from "./logout.js";
 const uploadInput = document.querySelector('#image');
 const uploadImage = document.querySelector('.image-upload img');
 const uploadForm = document.querySelector('#new-work-form');
+const cancelImgUpload = document.querySelector('.cancel-img-upload');
 
 // upload image and hide other elements
 async function hideOthers() {
@@ -20,10 +21,22 @@ uploadInput.addEventListener('change', () => {
     reader.onload = function(e) {
       uploadImage.src = e.target.result;
       uploadImage.style.display = 'flex';
+      cancelImgUpload.style.display = null;
       hideOthers();
     }
     reader.readAsDataURL(file);
   }
+});
+
+// cancelImgUpload
+cancelImgUpload.addEventListener('click', () => {
+    uploadImage.src = null;
+    uploadImage.style.display = 'none';
+    cancelImgUpload.style.display = 'none';
+    document.querySelector("#img-up-label").style.display = null;
+    document.querySelector(".fa-image").style.display = null;
+    document.querySelector("#image").style.display = null;
+    document.querySelector(".image-upload p").style.display = null;
 });
 
 

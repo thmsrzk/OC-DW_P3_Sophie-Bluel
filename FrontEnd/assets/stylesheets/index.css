@@ -163,8 +163,17 @@
 	align-items: center;
 	margin: 20px 0 50px 0;
 	background-color: #E8F1F6;
-	gap: 15px;
+	gap: 7px;
 	height: 200px;
+}
+
+.cancel-img-upload {
+	display: flex;
+	align-self: flex-end;
+	background: none;
+	border: 1px grey solid;
+	cursor: pointer;
+	position: absolute;
 }
 
 .image-upload img {
