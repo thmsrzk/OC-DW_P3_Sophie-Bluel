@@ -8,6 +8,8 @@ if (isLoggedIn()) {
     const uploadImage = document.querySelector('.image-upload img');
     const uploadForm = document.querySelector('#new-work-form');
     const cancelImgUpload = document.querySelector('.cancel-img-upload');
+    const imageTitle = document.querySelector('#img-title');
+    const submitButton = document.querySelector('#add-validation');
 
     // upload image and hide other elements
     async function hideOthers() {
@@ -42,8 +44,10 @@ if (isLoggedIn()) {
     }
 
     cancelImgUpload.addEventListener('click', () => {
-        uploadImage.src = "";
+        uploadInput.type = "text";
+        uploadInput.type = "file";
         resetImgUpload();
+        submitButton.style.backgroundColor = '#B3B3B3';
     });
 
 
@@ -83,5 +87,17 @@ if (isLoggedIn()) {
         resetImgUpload();
     }
 
+    function changeSubmitColor() {
+        uploadForm.addEventListener("input", () => {
+            if (imageTitle.value !== "" && uploadInput.value !== "") {
+                submitButton.style.backgroundColor = '#1D6154';
+            } else {
+                submitButton.style.backgroundColor = '#B3B3B3';
+            }
+        });
+    }
+    changeSubmitColor();
+    
 
 }
+
