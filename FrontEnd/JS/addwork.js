@@ -29,14 +29,18 @@ uploadInput.addEventListener('change', () => {
 });
 
 // cancelImgUpload
-cancelImgUpload.addEventListener('click', () => {
-    uploadImage.src = null;
+function resetImgUpload() {
     uploadImage.style.display = 'none';
     cancelImgUpload.style.display = 'none';
     document.querySelector("#img-up-label").style.display = null;
     document.querySelector(".fa-image").style.display = null;
     document.querySelector("#image").style.display = null;
     document.querySelector(".image-upload p").style.display = null;
+}
+
+cancelImgUpload.addEventListener('click', () => {
+    uploadImage.src = "";
+    resetImgUpload();
 });
 
 
@@ -53,7 +57,7 @@ async function addCategories() {
 addCategories();
 
 
-// Submit form to API
+// Submit form to API and reset it after submit
 
 uploadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -73,9 +77,5 @@ uploadForm.addEventListener('submit', async (e) => {
 
 function resetForm() {
     uploadForm.reset();
-    document.querySelector("#img-up-label").style.display = null;
-    document.querySelector(".fa-image").style.display = null;
-    document.querySelector("#image").style.display = null;
-    document.querySelector(".image-upload p").style.display = null;
-    uploadImage.style.display = 'none';
+    resetImgUpload();
 }
