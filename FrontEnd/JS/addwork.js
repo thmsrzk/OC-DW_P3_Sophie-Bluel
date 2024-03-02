@@ -1,4 +1,4 @@
-import { categories , sophiesWork , sophiesWorkRefreshed, generateGallery , generateModalGallery } from "./gallery.js";
+import { categories , refreshBothGalleries } from "./gallery.js";
 import { token } from "./logout.js";
 
 const uploadInput = document.querySelector('#image');
@@ -53,10 +53,16 @@ uploadForm.addEventListener('submit', async (e) => {
         body: formData,
     })
     if (response.ok) {
-        await sophiesWorkRefreshed();
-        document.querySelector(".gallery").innerHTML = '';
-        document.querySelector(".modal-gallery").innerHTML = '';
-        generateModalGallery(sophiesWork);
-        generateGallery(sophiesWork);
+        refreshBothGalleries();
+        resetForm();
     }
 });
+
+function resetForm() {
+    uploadForm.reset();
+    document.querySelector("#img-up-label").style.display = null;
+    document.querySelector(".fa-image").style.display = null;
+    document.querySelector("#image").style.display = null;
+    document.querySelector(".image-upload p").style.display = null;
+    uploadImage.style.display = 'none';
+}

@@ -1,5 +1,5 @@
 import { token } from "./logout.js";
-import { generateGallery , sophiesWorkRefreshed , sophiesWork , generateModalGallery } from "./gallery.js";
+import { refreshBothGalleries } from "./gallery.js";
 
 // delete works from database
 export function deleteWork() {
@@ -15,11 +15,7 @@ export function deleteWork() {
             });
 
             if (response.ok) {
-                await sophiesWorkRefreshed();
-                document.querySelector(".gallery").innerHTML = '';
-                document.querySelector(".modal-gallery").innerHTML = '';
-                generateModalGallery(sophiesWork);
-                generateGallery(sophiesWork);
+                refreshBothGalleries();
             }
         })
     })

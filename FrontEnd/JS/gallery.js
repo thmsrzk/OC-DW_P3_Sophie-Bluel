@@ -58,6 +58,15 @@ export function generateModalGallery(sophiesWork) {
 }
 
 
+// refresh and re-generate both galleries
+export async function refreshBothGalleries() {
+    await sophiesWorkRefreshed();
+    document.querySelector(".gallery").innerHTML = '';
+    document.querySelector(".modal-gallery").innerHTML = '';
+    generateGallery(sophiesWork);
+    generateModalGallery(sophiesWork);
+}
+
 
 // ----------------------------------FILTERS------------------------------------
 // "All" filter
