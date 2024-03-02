@@ -1,20 +1,9 @@
-import isLoggedIn from "./logout.js"
+import { isLoggedIn } from "./logout.js"
 import { sophiesWork } from "./gallery.js";
 import { generateModalGallery } from "./gallery.js";
 
 //delete everything related to the modal if the user is not logged in
-function removeModalRelatives() {
-    if (!isLoggedIn()) {
-        const elements = document.getElementsByClassName("modal-relative");
-        while(elements.length > 0){
-            elements[0].parentNode.removeChild(elements[0]);
-        }
-    } else {
-        generateModalGallery(sophiesWork);
-    }
-}
 
-removeModalRelatives();
 
 //open and close the modal
 const modal = document.querySelector("#modal");
@@ -37,7 +26,7 @@ const openFirstModal = function (e) {
     modal.querySelectorAll(".close-modals").forEach((button) => {
         button.addEventListener("click", closeModals);
     });
-
+    
 }
 
 
@@ -71,9 +60,19 @@ const closeSecondModal = function (e) {
     firstModal.style.display = null;
 }
 
+function removeModalRelatives() {
+    if (!isLoggedIn()) {
+        const elements = document.getElementsByClassName("modal-relative");
+        while(elements.length > 0){
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+    } else {
+        generateModalGallery(sophiesWork);
+        document.querySelector(".open-modal").addEventListener("click", openFirstModal);
+    }
+}
 
-
-document.querySelector(".open-modal").addEventListener("click", openFirstModal);
+removeModalRelatives()
 
 
 
