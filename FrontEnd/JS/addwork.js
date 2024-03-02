@@ -3,7 +3,7 @@ import { token } from "./logout.js";
 
 const uploadInput = document.querySelector('#image');
 const uploadImage = document.querySelector('.image-upload img');
-
+const uploadForm = document.querySelector('#new-work-form');
 
 // upload image and hide other elements
 async function hideOthers() {
@@ -40,9 +40,7 @@ async function addCategories() {
 addCategories();
 
 
-const uploadForm = document.querySelector('#new-work-form');
-const uploadTitle = document.querySelector('#img-title');
-const uploadCategory = document.querySelector('#category');
+// Submit form to API
 
 uploadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
