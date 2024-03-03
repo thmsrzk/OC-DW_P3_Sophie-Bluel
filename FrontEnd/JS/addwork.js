@@ -1,5 +1,6 @@
 import { categories , refreshBothGalleries } from "./gallery.js";
 import { token , isLoggedIn } from "./logout.js";
+import { closeModals } from "./modal.js";
 
 if (isLoggedIn()) {
     
@@ -10,6 +11,7 @@ if (isLoggedIn()) {
     const cancelImgUpload = document.querySelector('.cancel-img-upload');
     const imageTitle = document.querySelector('#img-title');
     const submitButton = document.querySelector('#add-validation');
+    const errorMessage = document.querySelector('.work-submit-error');
 
     // upload image and hide other elements
     async function hideOthers() {
@@ -35,19 +37,20 @@ if (isLoggedIn()) {
 
     // cancelImgUpload
     function resetImgUpload() {
+        uploadInput.type = "text";
+        uploadInput.type = "file";
         uploadImage.style.display = 'none';
         cancelImgUpload.style.display = 'none';
         document.querySelector("#img-up-label").style.display = null;
         document.querySelector(".fa-image").style.display = null;
         document.querySelector("#image").style.display = null;
         document.querySelector(".image-upload p").style.display = null;
+        submitButton.style.backgroundColor = '#B3B3B3';
+
     }
 
     cancelImgUpload.addEventListener('click', () => {
-        uploadInput.type = "text";
-        uploadInput.type = "file";
         resetImgUpload();
-        submitButton.style.backgroundColor = '#B3B3B3';
     });
 
 
@@ -79,6 +82,12 @@ if (isLoggedIn()) {
         if (response.ok) {
             refreshBothGalleries();
             resetForm();
+            errorMessage.innerHTML = '.';
+            errorMessage.style.color = "white";
+            closeModals(e);
+        } else {
+            errorMessage.innerHTML = 'Veuillez remplir tous les champs du formulaire.';
+            errorMessage.style.color = "red";
         }
     });
 

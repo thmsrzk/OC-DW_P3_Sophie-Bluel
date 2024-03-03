@@ -30,7 +30,7 @@ const openFirstModal = function (e) {
 }
 
 
-const closeModals = function (e) { 
+export const closeModals = async function (e) { 
     e.preventDefault();
     modal.style.display = "none";
     secondModal.style.display = "none";
