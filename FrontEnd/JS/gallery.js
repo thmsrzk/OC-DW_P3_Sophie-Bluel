@@ -52,7 +52,7 @@ export function generateModalGallery(sophiesWork) {
         imageElement.alt = work.title;
         
         const deleteButtonElement = document.createElement("button");
-        deleteButtonElement.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        deleteButtonElement.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
         deleteButtonElement.id = work.id;
         deleteButtonElement.className = "modal-del-buttons"
 
