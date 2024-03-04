@@ -264,8 +264,9 @@ font-size: 76px;
 }
 
 .gallery img {
-	max-width: 100%;
+	width: 350.89px;
 	height: 469.81px;
+
 	object-fit: cover;
 }
 #contact {
