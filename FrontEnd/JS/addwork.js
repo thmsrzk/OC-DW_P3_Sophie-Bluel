@@ -1,6 +1,5 @@
 import { categories , refreshBothGalleries } from "./gallery.js";
 import { token , isLoggedIn } from "./logout.js";
-import { closeModals } from "./modal.js";
 
 if (isLoggedIn()) {
     
@@ -82,12 +81,13 @@ if (isLoggedIn()) {
         if (response.ok) {
             refreshBothGalleries();
             resetForm();
-            errorMessage.innerHTML = '.';
-            errorMessage.style.color = "white";
-            closeModals(e);
+            hideMessage();
+            showSuccessMessage();
+            setTimeout(hideMessage, 3000);
         } else {
-            errorMessage.innerHTML = 'Veuillez remplir tous les champs du formulaire.';
-            errorMessage.style.color = "red";
+            showErrorMessage();
+            setTimeout(hideMessage, 3000);
+            
         }
     });
 
@@ -100,13 +100,32 @@ if (isLoggedIn()) {
         uploadForm.addEventListener("input", () => {
             if (imageTitle.value !== "" && uploadInput.value !== "") {
                 submitButton.style.backgroundColor = '#1D6154';
+                hideMessage();
             } else {
                 submitButton.style.backgroundColor = '#B3B3B3';
             }
         });
     }
     changeSubmitColor();
-    
+
+
+    // show an error or success message after submit
+    function showErrorMessage() {
+        errorMessage.innerHTML = 'Veuillez remplir tous les champs du formulaire.';
+        errorMessage.style.color = "red";
+        errorMessage.style.fontWeight = "bold";
+    };
+
+    function showSuccessMessage() {
+        errorMessage.innerHTML = 'Votre projet a bien été ajouté.';
+        errorMessage.style.color = "green";
+        errorMessage.style.fontWeight = "bold";
+    }
+
+    function hideMessage() {
+        errorMessage.innerHTML = '#';
+        errorMessage.style.color = "white";
+    };
 
 }
 
