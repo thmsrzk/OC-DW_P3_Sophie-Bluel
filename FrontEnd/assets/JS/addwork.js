@@ -9,7 +9,8 @@ const imageTitle = document.querySelector('#img-title');
 const submitButton = document.querySelector('#add-validation');
 const errorMessage = document.querySelector('.work-submit-error');
 
-// upload image and hide other elements
+
+// Hide the uploading 'form' when image is uploaded
 async function hideOthers() {
     document.querySelector("#img-up-label").style.display = 'none';
     document.querySelector(".fa-image").style.display = 'none';
@@ -17,6 +18,7 @@ async function hideOthers() {
     document.querySelector(".image-upload p").style.display = 'none';
 };
 
+// upload image
 export function submitUploadImg() {
     uploadInput.addEventListener('change', () => {
         const file = uploadInput.files[0];
@@ -33,7 +35,7 @@ export function submitUploadImg() {
     });
 }
     
-// cancelImgUpload
+// reset the image upload 'form"
 function resetImgUpload() {
     uploadInput.type = "text";
     uploadInput.type = "file";
@@ -47,6 +49,7 @@ function resetImgUpload() {
 
 }
 
+// cancel image upload after clicking on the cancel button
 export function cancelImgUpload() {
     cancelImgUploadBtn.addEventListener('click', () => {
         resetImgUpload();
@@ -66,8 +69,7 @@ export async function addCategories() {
 }
 
 
-// Submit form to API and reset it after submit
-
+// Submit form to API and reset it (form) after submit
 export function submitForm() {
     uploadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -98,6 +100,8 @@ function resetForm() {
     resetImgUpload();
 }
 
+
+// change submit button color when all fields are filled
 export function changeSubmitColor() {
     uploadForm.addEventListener("input", () => {
         if (imageTitle.value !== "" && uploadInput.value !== "") {

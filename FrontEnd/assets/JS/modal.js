@@ -2,10 +2,8 @@ import { isLoggedIn } from "./logout.js"
 import { sophiesWork } from "./gallery.js";
 import { generateModalGallery } from "./gallery.js";
 
-//delete everything related to the modal if the user is not logged in
 
 
-//open and close the modal
 const modal = document.querySelector("#modal");
 const stopPropagation = function (e) {
     e.stopPropagation();
@@ -60,6 +58,7 @@ const closeSecondModal = function (e) {
     firstModal.style.display = null;
 }
 
+//delete everything related to the modal if the user is not logged in
 export function removeModalRelatives() {
     if (!isLoggedIn()) {
         const elements = document.getElementsByClassName("modal-relative");

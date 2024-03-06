@@ -1,12 +1,14 @@
+import { deleteWork } from "./deletework.js";
+
 const worksApiUrl = "http://localhost:5678/api/works";
 const categoriesApiUrl = "http://localhost:5678/api/categories";
+const gallery = document.querySelector(".gallery");
 
-import deleteWork, * as deleteWorkImported from "./deletework.js";
-
+// fetch sophie's works and categories
 export let sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
-
 export const categories = await fetch(categoriesApiUrl).then(categories => categories.json());
 
+// refresh json file containing sophie's works
 async function sophiesWorkRefreshed() {
     sophiesWork = await fetch(worksApiUrl).then(response => response.json());
     return true;
@@ -17,8 +19,6 @@ async function sophiesWorkRefreshed() {
 document.querySelector(".gallery").innerHTML = '';
 
 // generate page gallery
-const gallery = document.querySelector(".gallery");
-
 export function generateGallery(sophiesWork) {
     for (let a = 0; a < sophiesWork.length; a++) {
         
