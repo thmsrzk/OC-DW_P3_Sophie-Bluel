@@ -2,7 +2,7 @@ import { token } from "./logout.js";
 import { refreshBothGalleries } from "./gallery.js";
 
 // delete works from database
-export default function deleteWork() {
+export function deleteWork() {
     const buttons = document.querySelectorAll(".modal-del-buttons");
     buttons.forEach(button => {
         button.addEventListener("click", async () => {

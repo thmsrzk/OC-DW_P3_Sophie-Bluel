@@ -14,6 +14,10 @@
 	gap: 15px;
 }
 
+#black-banner p {
+	font-family: Work Sans;
+}
+
 .logout-btn:hover {
     color: red;
 	font-weight: bold;
@@ -76,6 +80,10 @@
 	background: rgba(0, 0, 0, 0.35);
 	justify-content: center;
 	align-items: center;
+}
+
+.modale-relative a {
+	font-family:  Work Sans;
 }
 
 .modal1-wrapper, .modal2-wrapper{
@@ -155,6 +163,7 @@
 	height: 36px;
 	width: 237px;
 	cursor: pointer;
+	border: none;
 }
 
 .modal2-buttons {
