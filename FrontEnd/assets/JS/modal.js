@@ -60,7 +60,7 @@ const closeSecondModal = function (e) {
     firstModal.style.display = null;
 }
 
-function removeModalRelatives() {
+export function removeModalRelatives() {
     if (!isLoggedIn()) {
         const elements = document.getElementsByClassName("modal-relative");
         while(elements.length > 0){
@@ -71,8 +71,6 @@ function removeModalRelatives() {
         document.querySelector(".open-modal").addEventListener("click", openFirstModal);
     }
 }
-
-removeModalRelatives()
 
 
 

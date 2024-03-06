@@ -8,7 +8,7 @@ export const isLoggedIn = () => {
     return false;
 }
 
-function logout() {
+export function logout() {
     if (isLoggedIn()) {
         logOutButton.innerHTML = 'logout';  
         logOutButton.href = '';
@@ -19,5 +19,3 @@ function logout() {
         });
     }
 }
-
-logout();
