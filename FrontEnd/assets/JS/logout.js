@@ -1,7 +1,11 @@
 export const token = localStorage.getItem("token");
 const logOutButton = document.querySelector("#login-btn");
 
-// check if user is logged in
+
+/**  check if user is logged in
+
+* @returns {boolean} - true if user is logged in, false otherwise
+*/
 export const isLoggedIn = () => {
     if (token != null) {
         return true;

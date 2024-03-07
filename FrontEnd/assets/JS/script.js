@@ -1,6 +1,7 @@
 import { isLoggedIn , logout } from "./logout.js";
 import { removeModalRelatives } from "./modal.js";
 import { cancelImgUpload , addCategories , submitForm , changeSubmitColor , submitUploadImg } from "./addwork.js";
+import { filtersClickEvent , allFilterClicked } from "./gallery.js";
 
 
 import ("./gallery.js");
@@ -27,3 +28,6 @@ if (isLoggedIn() === true) {
 // modal.js eventlistener and function calling
 removeModalRelatives()
 
+// gallery.js eventlistener and function calling
+filtersClickEvent();
+allFilterClicked();

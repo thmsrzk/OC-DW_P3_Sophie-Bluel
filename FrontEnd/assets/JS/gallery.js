@@ -74,27 +74,31 @@ export async function refreshBothGalleries() {
 
 
 // Filter gallery by category
-function createFilter(filterId, categoryId) {
-    const filter = document.querySelector(filterId);
-
-    filter.addEventListener("click", function () {
-        let workFiltered;
-        if (categoryId === null) {
-            workFiltered = sophiesWork;
-        } else {
-            workFiltered = sophiesWork.filter(function (work) {
-                return work.categoryId === categoryId;
-            });
-        }
-        document.querySelector(".gallery").innerHTML = '';
-        generateGallery(workFiltered);
-    });
+export function filtersClickEvent() {
+    const filters = {
+    "#all": null,
+    "#objects": 1,
+    "#apartments": 2,
+    "#hotelsrestaurants": 3,
+    };
+    
+    for (const [filterName, categoryId] of Object.entries(filters)) {
+        const filter = document.querySelector(filterName);
+        filter.addEventListener("click", function () {
+            let workFiltered;
+            if (categoryId === null) {
+                workFiltered = sophiesWork;
+            } else {
+                workFiltered = sophiesWork.filter(function (work) {
+                    return work.categoryId === categoryId;
+                });
+            }
+            document.querySelector(".gallery").innerHTML = '';
+            generateGallery(workFiltered);
+        });
+    }
 }
 
-createFilter("#all", null);
-createFilter("#objects", 1);
-createFilter("#apartments", 2);
-createFilter("#hotelsrestaurants", 3);
 
 
 // Change background and font color from selected filter-------------------------
@@ -104,9 +108,11 @@ buttons.forEach(button => {
   button.addEventListener('click', function () {
   buttons.forEach(filter => filter.classList.remove('selectedFilter'));
   this.classList.add('selectedFilter');
-} /*, false*/ )
+})
 });
 
 
 // Make "all" ("Tous") filter clicked by default ----------------------------------------
-document.getElementById('all').click();
+export function allFilterClicked () {
+    document.getElementById('all').click();
+}
