@@ -22,8 +22,6 @@ document.querySelector(".gallery").innerHTML = '';
 export function generateGallery(sophiesWork) {
     for (let a = 0; a < sophiesWork.length; a++) {
         
-        const galleryDiv = gallery;
-
         const figureElement = document.createElement("figure");
 
         const imageElement = document.createElement("img");
@@ -33,7 +31,7 @@ export function generateGallery(sophiesWork) {
         const figcaptionElement = document.createElement("figcaption");
         const figcaptionContent = sophiesWork[a].title;
 
-        galleryDiv.appendChild(figureElement);
+        gallery.appendChild(figureElement);
         figureElement.append(imageElement, figcaptionElement);
         figcaptionElement.append(figcaptionContent);
     }

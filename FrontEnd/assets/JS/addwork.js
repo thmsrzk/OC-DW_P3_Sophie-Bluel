@@ -18,8 +18,8 @@ async function hideOthers() {
     document.querySelector(".image-upload p").style.display = 'none';
 };
 
-// upload image
-export function submitUploadImg() {
+// add and display image on image input
+export function addImg() {
     uploadInput.addEventListener('change', () => {
         const file = uploadInput.files[0];
         if (file) {
@@ -84,13 +84,11 @@ export function submitForm() {
         if (response.ok) {
             refreshBothGalleries();
             resetForm();
-            hideMessage();
             showSuccessMessage();
             setTimeout(hideMessage, 3000);
         } else {
             showErrorMessage();
             setTimeout(hideMessage, 3000);
-            
         }
     });
 }
