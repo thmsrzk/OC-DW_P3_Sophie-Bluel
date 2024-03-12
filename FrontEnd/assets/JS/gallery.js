@@ -1,4 +1,4 @@
-import { deleteWork } from "./deletework.js";
+import { deleteWork } from "./works/delete.js";
 
 const worksApiUrl = "http://localhost:5678/api/works";
 const categoriesApiUrl = "http://localhost:5678/api/categories";

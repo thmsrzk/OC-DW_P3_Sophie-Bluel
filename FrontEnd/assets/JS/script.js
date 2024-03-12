@@ -1,6 +1,6 @@
-import { isLoggedIn , logout } from "./logout.js";
+import { isLoggedIn , logout } from "./authentication/logout.js";
 import { removeModalRelatives } from "./modal.js";
-import { cancelImgUpload , addCategories , submitForm , changeSubmitColor , addImg } from "./addwork.js";
+import { cancelImgUpload , addCategories , submitForm , changeSubmitColor , addImg } from "./works/add.js";
 import { filtersClickEvent , allFilterClicked } from "./gallery.js";
 
 
@@ -8,10 +8,10 @@ import ("./gallery.js");
 import ("./modal.js");
 
 if (isLoggedIn() === true) {
-    import ("./addwork.js");
-    import ("./deletework.js");
-    import ("./logout.js");
-
+    import ("./works/add.js");
+    import ("./works/delete.js");
+    import ("./authentication/logout.js");
+    
     // addwork.js eventlistener and function calling
     cancelImgUpload();
     addCategories();

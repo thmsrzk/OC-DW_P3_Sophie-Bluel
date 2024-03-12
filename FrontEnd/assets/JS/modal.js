@@ -1,4 +1,4 @@
-import { isLoggedIn } from "./logout.js"
+import { isLoggedIn } from "./authentication/logout.js"
 import { sophiesWork } from "./gallery.js";
 import { generateModalGallery } from "./gallery.js";
 

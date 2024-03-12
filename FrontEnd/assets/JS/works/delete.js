@@ -1,5 +1,5 @@
-import { token } from "./logout.js";
-import { refreshBothGalleries } from "./gallery.js";
+import { token } from "../authentication/logout.js";
+import { refreshBothGalleries } from "../gallery.js";
 
 // delete works from database
 export function deleteWork() {
