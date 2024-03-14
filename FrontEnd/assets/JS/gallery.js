@@ -1,12 +1,12 @@
 import { deleteWork } from "./works/delete.js";
 
 const worksApiUrl = "http://localhost:5678/api/works";
-const categoriesApiUrl = "http://localhost:5678/api/categories";
 const gallery = document.querySelector(".gallery");
 
-// fetch sophie's works and categories
+
+// fetch sophie's works
 export let sophiesWork = await fetch(worksApiUrl).then(sophiesWork => sophiesWork.json());
-export const categories = await fetch(categoriesApiUrl).then(categories => categories.json());
+
 
 // refresh json file containing sophie's works
 async function sophiesWorkRefreshed() {
@@ -14,9 +14,6 @@ async function sophiesWorkRefreshed() {
     return true;
 }
 
-
-//Erase html's .gallery content
-document.querySelector(".gallery").innerHTML = '';
 
 // generate page gallery
 export function generateGallery(sophiesWork) {
@@ -70,47 +67,3 @@ export async function refreshBothGalleries() {
     generateModalGallery(sophiesWork);
 }
 
-
-// Filter gallery by category
-export function filtersClickEvent() {
-    const filters = {
-    "#all": null,
-    "#objects": 1,
-    "#apartments": 2,
-    "#hotelsrestaurants": 3,
-    };
-    
-    for (const [filterName, categoryId] of Object.entries(filters)) {
-        const filter = document.querySelector(filterName);
-        filter.addEventListener("click", function () {
-            let workFiltered;
-            if (categoryId === null) {
-                workFiltered = sophiesWork;
-            } else {
-                workFiltered = sophiesWork.filter(function (work) {
-                    return work.categoryId === categoryId;
-                });
-            }
-            document.querySelector(".gallery").innerHTML = '';
-            generateGallery(workFiltered);
-        });
-    }
-}
-
-
-
-// Change background and font color from selected filter-------------------------
-const buttons = document.querySelectorAll('.filter');
-
-buttons.forEach(button => {
-  button.addEventListener('click', function () {
-  buttons.forEach(filter => filter.classList.remove('selectedFilter'));
-  this.classList.add('selectedFilter');
-})
-});
-
-
-// Make "all" ("Tous") filter clicked by default ----------------------------------------
-export function allFilterClicked () {
-    document.getElementById('all').click();
-}

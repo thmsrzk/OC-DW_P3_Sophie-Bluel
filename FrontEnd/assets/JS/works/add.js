@@ -1,4 +1,5 @@
-import { categories , refreshBothGalleries } from "../gallery.js";
+import { refreshBothGalleries } from "../gallery.js";
+import { categories } from "../filters.js";
 import { token } from "../authentication/logout.js";
     
 const uploadInput = document.querySelector('#image');

@@ -1,11 +1,12 @@
 import { isLoggedIn , logout } from "./authentication/logout.js";
 import { removeModalRelatives } from "./modal.js";
 import { cancelImgUpload , addCategories , submitForm , changeSubmitColor , addImg } from "./works/add.js";
-import { filtersClickEvent , allFilterClicked } from "./gallery.js";
-
+import { filtersClickEvent , allFilterClicked } from "./filters.js";
+import { generateFilter , categories , changeFilterColor } from "./filters.js";
 
 import ("./gallery.js");
 import ("./modal.js");
+import ("./filters.js");
 
 if (isLoggedIn() === true) {
     import ("./works/add.js");
@@ -24,6 +25,10 @@ if (isLoggedIn() === true) {
     logout();
 
 }
+
+generateFilter(categories);
+changeFilterColor();
+
 
 // modal.js eventlistener and function calling
 removeModalRelatives()
