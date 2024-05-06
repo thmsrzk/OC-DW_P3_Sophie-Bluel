@@ -11,11 +11,12 @@
 
 <br>
 
-# Portfolio-architecte-sophie-bluel
+## Instructions
 
-Code du projet 3 de la formation Développeur Web.
+Back-end setup : 
+ - Go to Backend folder
+ - `npm install`
+ - `npm start`
 
-## Information pour le lancer le code
 
- - Lancer le backend depuis votre terminal en suivant les instruction du fichier ReadMe.
- - Si vous désirez afficher le code du backend et du frontend, faites le dans 2 instances de VSCode différentes pour éviter tout problème
+If you wish to open both back-end and front end, do it separatly in 2 VSCode instances to avoid any problem (Fox example : LiveServer would refresh the page anytime back-end get modified)
