@@ -6,7 +6,7 @@
   
   ## Project n°3 from Openclassrooms's Web Development training program
 
-<img align="center" src="https://i.ibb.co/47Fj2GJ/2024-05-06-21-18-52.png" alt="Project description"/>
+<img align="center" src="./FrontEnd/assets/images/P3_Description.png" alt="Project description"/>
 
 
 <br>
